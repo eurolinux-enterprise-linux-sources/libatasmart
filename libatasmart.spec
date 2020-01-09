@@ -1,6 +1,6 @@
 Name: libatasmart
 Version: 0.17
-Release: 3%{?dist}
+Release: 4%{?dist}
 Summary: ATA S.M.A.R.T. Disk Health Monitoring Library
 Group: System Environment/Libraries
 Source0: http://0pointer.de/public/libatasmart-%{version}.tar.gz
@@ -11,6 +11,8 @@ BuildRequires: libudev-devel
 
 # https://bugs.freedesktop.org/show_bug.cgi?id=25543
 Patch0: libatasmart-uninitialized-var.patch
+# https://bugzilla.redhat.com/show_bug.cgi?id=707841
+Patch1: 0001-atasmart-multiply-by-sector-threshold-by-1024-to-avo.patch
 
 %description
 A scmall and lightweight parser library for ATA S.M.A.R.T. hard disk
@@ -31,6 +33,7 @@ Development Files for libatasmart Client Development
 %prep
 %setup -q
 %patch0 -p1 -b .uninitialized-var.patch
+%patch1 -p1
 
 %build
 %configure --disable-static
@@ -61,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc blob-examples/SAMSUNG* blob-examples/ST* blob-examples/Maxtor* blob-examples/WDC* blob-examples/FUJITSU* blob-examples/INTEL* blob-examples/TOSHIBA* blob-examples/MCC*
 
 %changelog
+* Tue May 29 2012 Lennart Poettering <lpoetter@redhat.com> - 0.17-4
+- Fix #824918 (#707841)
+
 * Tue Jan 12 2010 Matthias Clasen <mclasen@redhat.com> - 0.17-3
 - Don't require vala (#547784)
 
