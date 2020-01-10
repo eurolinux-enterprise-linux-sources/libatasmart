@@ -1,6 +1,6 @@
 Name: libatasmart
 Version: 0.19
-Release: 4%{?dist}
+Release: 6%{?dist}
 Summary: ATA S.M.A.R.T. Disk Health Monitoring Library
 Group: System Environment/Libraries
 Source0: http://0pointer.de/public/libatasmart-%{version}.tar.xz
@@ -53,6 +53,12 @@ rm $RPM_BUILD_ROOT%{_docdir}/libatasmart/README
 %doc blob-examples/SAMSUNG* blob-examples/ST* blob-examples/Maxtor* blob-examples/WDC* blob-examples/FUJITSU* blob-examples/INTEL* blob-examples/TOSHIBA* blob-examples/MCC*
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 0.19-6
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 0.19-5
+- Mass rebuild 2013-12-27
+
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 0.19-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
